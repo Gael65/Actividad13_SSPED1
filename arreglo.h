@@ -21,7 +21,11 @@ public:
     void insertarFinal(const T& v);
     void insertarInicio(const T& v);
     void insertar(const T& v, size_t p);
-    
+
+    void eliminar_inicio();
+    void eliminar_final();
+    void eliminar(size_t p);
+
     size_t size();
 
     string operator[](size_t p) {
@@ -101,6 +105,44 @@ void ArregloDinamico<T>::insertar(const T& v, size_t p) {
 
     arreglo[p] = v;
     contador++;
+}
+
+template<class T>
+void ArregloDinamico<T>::eliminar_final() {
+    if(contador == 0) {
+        cout << "Arreglo vacío" << endl;
+        return;
+    }
+
+    contador--;
+}
+
+template<class T>
+void ArregloDinamico<T>::eliminar_inicio() {
+    if(contador == 0) {
+        cout << "Arreglo vacío" << endl;
+        return;
+    }
+
+    for(size_t i = 0; i < contador - 1; i++) {
+        arreglo[i] = arreglo[i + 1];
+    }
+
+    contador --;
+}
+
+template<class T>
+void ArregloDinamico<T>::eliminar(size_t p) {
+    if(contador == 0) {
+        cout << "Arreglo vacío" << endl;
+        return;
+    }
+
+    for(size_t i = p; i < contador - 1; i++) {
+        arreglo[i] = arreglo[i + 1];
+    }
+
+    contador --;
 }
 
 #endif

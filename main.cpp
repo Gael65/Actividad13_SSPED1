@@ -25,5 +25,14 @@ int main() {
         cout << arreglo[i] << endl;
     }
 
+    cout << endl << "Eliminar con eliminar_inicio(), eliminar_final() y eliminar()" << endl;
+    arreglo.eliminar_inicio();
+    arreglo.eliminar_final();
+    arreglo.eliminar(1);
+
+    for(size_t i = 0; i < arreglo.size(); i++) {
+        cout << arreglo[i] << endl;
+    }
+
     return 0;
 }
